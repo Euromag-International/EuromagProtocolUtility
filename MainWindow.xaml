@@ -842,11 +842,11 @@ VerticalAlignment="Top">
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Grid>
+                            <Grid x:Name="ComPortSetting">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -859,19 +859,48 @@ VerticalAlignment="Top">
                                             Grid.Column="1"                                            
                                             IsEditable="False"
                                             ItemsSource="{Binding CommResources.SerialPortsCom}" 
-                                            SelectedItem="{Binding CommResources.UserCommPort}"                                 >
+                                            SelectedItem="{Binding UserCommPort}"                                 >
                                 </ComboBox>
                                 <Button x:Name="SavePortBtn" 
                                         Margin="10"
                                         Grid.Column="2"
                                         Grid.Row="1"
-                                        IsEnabled="{Binding CommResources.DataChanged}"
+                                        IsEnabled="{Binding DataChanged}"
                                         Style="{DynamicResource MaterialDesignToolButton}"
-                                        Command="{Binding CommResources.SaveComCmd}" 
+                                        Command="{Binding SaveComCmd}" 
                                         HorizontalAlignment="Left">
                                     <materialDesign:PackIcon
                                             Kind="ContentSave"
                                             Opacity=".56" VerticalAlignment="Center" Width="24" Height="24"/>
+                                </Button>
+                            </Grid>
+                            <Grid x:Name="BaudRateSetting"
+                                  Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Baud Rate"
+               VerticalAlignment="Center"
+               Margin="10"/>
+                                <ComboBox x:Name="BaudRateSelection" 
+                Grid.Column="1"                                            
+                IsEditable="False"
+                ItemsSource="{Binding BaudRates}" 
+                SelectedItem="{Binding UserBaudrate}"                                 >
+                                </ComboBox>
+                                <Button x:Name="SaveBaudRateBtn" 
+            Margin="10"
+            Grid.Column="2"
+            Grid.Row="1"
+            IsEnabled="{Binding DataChanged}"
+            Style="{DynamicResource MaterialDesignToolButton}"
+            Command="{Binding SaveComCmd}" 
+            HorizontalAlignment="Left">
+                                    <materialDesign:PackIcon
+                Kind="ContentSave"
+                Opacity=".56" VerticalAlignment="Center" Width="24" Height="24"/>
                                 </Button>
                             </Grid>
                         </Grid>

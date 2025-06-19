@@ -36,3 +36,4 @@ C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\bin\Debug\
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\App.baml
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\bin\Debug\net6.0-windows\EuromagProtocolUtility.dll.config
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\EuromagProtocolUtility.sourcelink.json

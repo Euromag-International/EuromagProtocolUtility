@@ -9,6 +9,7 @@ using System.Windows.Data;
 using UniversalConnect.Memory;
 using UniversalConnect.StdCommands;
 using UniversalConnect;
+using System.Windows.Input;
 
 namespace EuromagProtocolUtility
 {
@@ -59,10 +60,97 @@ namespace EuromagProtocolUtility
             RamPage.Name = "Ram Bluetooth/RS485";
             RamPage.Index = ReadVarBundle.RAM_BUNDLE_BT_RS485;
             CommResources.DeviceRamBundlesView.Add(RamPage);
+           
+            IList<int> BaudRateList = new List<int>();
+            BaudRateList.Add(9600);
+            BaudRateList.Add(19200);
+            BaudRateList.Add(38400);
+            BaudRateList.Add(57600);
+            BaudRateList.Add(76800);
+            BaudRateList.Add(115200);
+            BaudRates = new CollectionView(BaudRateList);
+
+            UserCommPort = Properties.Settings.Default.UserComPort;
+            UserBaudrate = Properties.Settings.Default.UserBaudRate;
+            DataChanged = false;
 
             CommResources.CheckComPorts();
+
+            CommResources.OpenCom(UserCommPort, UserBaudrate);
         }
 
+        public CollectionView BaudRates { get; set; }
+
+        private int _userBaudrate;
+        public int UserBaudrate
+        {
+            get { return _userBaudrate; }
+            set
+            {
+                if (value != _userBaudrate)
+                {
+                    _userBaudrate = value;
+                    DataChanged = true;
+                    OnPropertyChanged("UserBaudrate");
+                }
+            }
+        }
+
+        private string _userCommPort;
+        public string UserCommPort
+        {
+            get { return _userCommPort; }
+            set
+            {
+                if (value != _userCommPort)
+                {
+                    _userCommPort = value;
+                    DataChanged = true;
+                    OnPropertyChanged("UserCommPort");
+                }
+            }
+        }
+
+        private bool _dataChanged;
+        public bool DataChanged
+        {
+            get { return _dataChanged; }
+            set
+            {
+                if (value != _dataChanged)
+                {
+                    _dataChanged = value;
+                    OnPropertyChanged("DataChanged");
+                }
+            }
+        }
+
+        private ICommand _saveComCmd;
+        public ICommand SaveComCmd
+        {
+            get
+            {
+                if (_saveComCmd == null)
+                {
+                    _saveComCmd = new RelayCommand(
+                        param => SaveCom()
+                    );
+                }
+                return _saveComCmd;
+            }
+        }
+
+        private void SaveCom()
+        {
+            Properties.Settings.Default.UserComPort = UserCommPort;
+            Properties.Settings.Default.UserBaudRate = UserBaudrate;
+
+            if (CommResources.OpenCom(UserCommPort, UserBaudrate))
+            {
+                DataChanged = false;
+                Properties.Settings.Default.Save();
+            }
+        }
 
         public Parameters DeviceParameters
         {

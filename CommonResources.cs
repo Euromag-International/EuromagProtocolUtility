@@ -32,14 +32,7 @@ namespace EuromagProtocolUtility
             GsmVariableVisibility = Visibility.Collapsed;
             GsmParamSelected = true;
             ParDescription = string.Empty;
-
-            UserCommPort = Properties.Settings.Default.UserComPort;
-            UserBaudrate = Properties.Settings.Default.UserBaudRate;
-            DataChanged = false;
-
-            OpenIrCom();
-        }
-
+        }        
 
         private static CommonResources _instance;
         public static CommonResources Instance
@@ -143,11 +136,20 @@ namespace EuromagProtocolUtility
                 return false;
         }
 
-        public bool OpenIrCom()
+        public bool OpenCom(string _comPort, int _baudRate)
         {
-            if((UserCommPort == null)||(UserCommPort == ""))
+            UserCommPort = _comPort;
+            UserBaudrate = _baudRate;
+
+            if ((UserCommPort == null)||(UserCommPort == ""))
             {
                 MessageBox.Show("Selezionare una porta COM", "COM Port Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+
+            if (UserBaudrate == 0)
+            {
+                MessageBox.Show("Selezionare un BaudRate", "COM Port Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
 
@@ -157,7 +159,6 @@ namespace EuromagProtocolUtility
                     portHandler.close();
             }
 
-            UserBaudrate = 76800;
             portHandler = new commPortHandler(UserCommPort, UserBaudrate);
             portHandler.FlowContr = false;
 
@@ -172,33 +173,6 @@ namespace EuromagProtocolUtility
             {
                 MessageBox.Show(portHandler.PortName + " is unavailable", "COM Port Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
-            }
-        }
-
-        private ICommand _saveComCmd;
-        public ICommand SaveComCmd
-        {
-            get
-            {
-                if (_saveComCmd == null)
-                {
-                    _saveComCmd = new RelayCommand(
-                        param => SaveCom()
-                    );
-                }
-                return _saveComCmd;
-            }
-        }
-
-        private void SaveCom()
-        {
-            Properties.Settings.Default.UserComPort = UserCommPort;
-            Properties.Settings.Default.UserBaudRate = UserBaudrate;
-
-            if (OpenIrCom())
-            {
-                DataChanged = false;
-                Properties.Settings.Default.Save();
             }
         }
 
