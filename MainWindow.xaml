@@ -34,6 +34,21 @@
                     <TextBlock Text="Lista Parametri EEProm Da XML" 
                                Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
                                Margin="10"/>
+                    <Button x:Name="OpenEditorBtn"   
+                            Visibility="Collapsed"
+                            IsEnabled="{Binding CommResources.ControlsEnable}"
+                            HorizontalAlignment="Right"
+                            Margin="5"     
+                            ToolTip="Apri Editor XML per MagNet"
+                            Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                            Click="OpenEditorBtn_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                            Kind="Pencil"
+                                            VerticalAlignment="Center"/>
+                            <TextBlock Text="MagNet Editor" Margin="2" Height="Auto"/>
+                        </StackPanel>
+                    </Button>
                     <Grid Margin="10"
                       Grid.Row="1">
                         <Grid.RowDefinitions>
@@ -907,7 +922,27 @@ VerticalAlignment="Top">
                     </materialDesign:Card>
                 </Grid>
             </TabItem>
-
+            <TabItem x:Name="FramesTab"                     
+                     Header="{materialDesign:PackIcon Kind=Code, Size=24}"
+                     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Lista Frame Protocollo" 
+                               Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                               Margin="10"/>
+                    <ScrollViewer Grid.Row="1" Margin="10">
+                        <DataGrid x:Name="FrameListGrid"
+                                  Margin="10"
+                                  AlternatingRowBackground="LightGray"
+                                  IsReadOnly="True"
+                                  AutoGenerateColumns="True"                                  
+                                  ItemsSource="{Binding CommResources.FrameTypesView}"/>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
         </TabControl>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

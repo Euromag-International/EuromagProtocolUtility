@@ -89,5 +89,24 @@ namespace EuromagProtocolUtility
                 return CommonResources.Instance;
             }
         }
+
+        private Window FileEditor;
+        private void OpenEditorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (FileEditor == null)
+            {
+                FileEditor = new MagNetEditor();
+                FileEditor.Owner = this;
+                FileEditor.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                FileEditor.Show();
+            }
+            else if (FileEditor.IsLoaded == false)
+            {
+                FileEditor = new MagNetEditor();
+                FileEditor.Owner = this;
+                FileEditor.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                FileEditor.Show();
+            }
+        }
     }
 }

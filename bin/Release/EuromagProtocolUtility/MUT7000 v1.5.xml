@@ -1,0 +1,3619 @@
+<?xml version="1.0"?>
+<MemoryModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Variables>
+    <VariableModel>
+      <ID>0</ID>
+      <Name>EE_KEY</Name>
+      <Description>EE memory configuration key</Description>
+      <Address>0</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Value />
+      <Default>0xE980</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>1</ID>
+      <Name>EE_PULSE_LENGTH</Name>
+      <Description>pulse ON width [ms]</Description>
+      <Address>2</Address>
+      <ExternalId>1</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>10</Default>
+      <Minimum>5</Minimum>
+      <Maximum>1500</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>2</ID>
+      <Name>EE_OFFSET_TEMP</Name>
+      <Description>internal temperature offset [C]</Description>
+      <Address>4</Address>
+      <ExternalId>2</ExternalId>
+      <ExecutionMask>16777216</ExecutionMask>
+      <Type>TYPE_SS</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>0</Default>
+      <Minimum>-50</Minimum>
+      <Maximum>50</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>3</ID>
+      <Name>EE_PLOG_TIME</Name>
+      <Description>process log line storing period [minutes]</Description>
+      <Address>6</Address>
+      <ExternalId>3</ExternalId>
+      <ExecutionMask>134217728</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>15</Default>
+      <Minimum>1</Minimum>
+      <Maximum>120</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>4</ID>
+      <Name>EE_CALIBR_TEMP</Name>
+      <Description>internal temperature registred during the calibration [C]</Description>
+      <Address>7</Address>
+      <ExternalId>4</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>20</Default>
+      <Minimum>0</Minimum>
+      <Maximum>50</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>5</ID>
+      <Name>EE_CALIBR_VOLT</Name>
+      <Description>internal voltage registred during the calibration [V]</Description>
+      <Address>8</Address>
+      <ExternalId>5</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>36</Default>
+      <Minimum>30</Minimum>
+      <Maximum>50</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>6</ID>
+      <Name>EE_WAKEUP_SEC</Name>
+      <Description>auto power-off timeout [s]</Description>
+      <Address>9</Address>
+      <ExternalId>6</ExternalId>
+      <ExecutionMask>268435456</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>0</Minimum>
+      <Maximum>7</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>20 s</Description>
+          <IdString>EE_WAKEUP_20_SEC</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>1 min</Description>
+          <IdString>EE_WAKEUP_1_MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>3 min</Description>
+          <IdString>EE_WAKEUP_3_MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>15 min</Description>
+          <IdString>EE_WAKEUP_15_MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>1 h</Description>
+          <IdString>EE_WAKEUP_1_HOURS</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>6 h</Description>
+          <IdString>EE_WAKEUP_6_HOURS</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>6</Value>
+          <Description>12 h</Description>
+          <IdString>EE_WAKEUP_12_HOURS</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>7</Value>
+          <Description>18 h</Description>
+          <IdString>EE_WAKEUP_18_HOURS</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>7</ID>
+      <Name>EE_PWD_TIMEOUT</Name>
+      <Description>password expiry timout [s]</Description>
+      <Address>10</Address>
+      <ExternalId>7</ExternalId>
+      <ExecutionMask>268435456</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>300</Default>
+      <Minimum>60</Minimum>
+      <Maximum>64800</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>8</ID>
+      <Name>EE_BATT_AUTOSAVE</Name>
+      <Description>energy drain and residual battery energy eeprom update [s]</Description>
+      <Address>12</Address>
+      <ExternalId>8</ExternalId>
+      <ExecutionMask>8388608</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>3600</Default>
+      <Minimum>600</Minimum>
+      <Maximum>64800</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>9</ID>
+      <Name>EE_TIMEOUT_TO_MAIN</Name>
+      <Description>automatic return to the main screen timeout [s]</Description>
+      <Address>14</Address>
+      <ExternalId>9</ExternalId>
+      <ExecutionMask>268435456</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>300</Default>
+      <Minimum>5</Minimum>
+      <Maximum>64800</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>10</ID>
+      <Name>EE_SPECIAL_VISUAL</Name>
+      <Description>special visualization options</Description>
+      <Address>16</Address>
+      <ExternalId>10</ExternalId>
+      <ExecutionMask>33554432</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>default</Description>
+          <IdString>EE_SPECIAL_VISUAL_DEFAULT</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>scroll T+ only</Description>
+          <IdString>EE_SPECIAL_VISUAL_TPONLY</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>scroll T NET only - scroll flow only</Description>
+          <IdString>EE_SPECIAL_VISUAL_NETONLY</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>11</ID>
+      <Name>EE_NEG_PULSE_OUTPUT_MODE</Name>
+      <Description>mode of pulse output (PN or only PP)</Description>
+      <Address>17</Address>
+      <ExternalId>11</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>negative pulse output</Description>
+          <IdString>EE_NEG_OUTPUT</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>positive pulse output</Description>
+          <IdString>EE_POS_OUTPUT</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>error output</Description>
+          <IdString>EE_ERROR_OUTPUT</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>12</ID>
+      <Name>EE_PULSE_VOL</Name>
+      <Description>pulse volume</Description>
+      <Address>18</Address>
+      <ExternalId>12</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>1000</Default>
+      <Minimum>1</Minimum>
+      <Maximum>10000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>13</ID>
+      <Name>EE_UT_PULSE</Name>
+      <Description>pulse volume entry technical unit</Description>
+      <Address>20</Address>
+      <ExternalId>13</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>1</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>milliliter [mL]</Description>
+          <IdString>UT_PULSE_ML</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>liter [L]</Description>
+          <IdString>UT_PULSE_L</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>cubic meter [m3]</Description>
+          <IdString>UT_PULSE_M3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>US liquid gallon [gal]</Description>
+          <IdString>UT_PULSE_GAL</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>14</ID>
+      <Name>EE_FW_V</Name>
+      <Description>firmware version</Description>
+      <Address>21</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>15</ID>
+      <Name>EE_FW_R</Name>
+      <Description>firmware revision</Description>
+      <Address>22</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>16</ID>
+      <Name>EE_PROTECION_LEV</Name>
+      <Description>Device protection level</Description>
+      <Address>24</Address>
+      <ExternalId>14</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>No set(default)</Description>
+          <IdString>EE_PROT_NOT_SET</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>No protection</Description>
+          <IdString>EE_PROT_NONE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>Prot Lev 1</Description>
+          <IdString>EE_PROT_LEV_1</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>Prot Lev 2</Description>
+          <IdString>EE_PROT_LEV_2</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>Prot Lev 3</Description>
+          <IdString>EE_PROT_LEV_3</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>17</ID>
+      <Name>EE_SUSPEND_CNT</Name>
+      <Description>EE_SUSPEND_CNT</Description>
+      <Address>25</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>18</ID>
+      <Name>EE_PROTOCOL_V</Name>
+      <Description>communication protocol ver</Description>
+      <Address>26</Address>
+      <ExternalId>93</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>19</ID>
+      <Name>EE_PROTOCOL_R</Name>
+      <Description>communication protocol rel</Description>
+      <Address>27</Address>
+      <ExternalId>94</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>20</ID>
+      <Name>EE_ALARM_OUT_MASK</Name>
+      <Description>Alarm conditions to trigger the negative pulses output when used for alarms indication</Description>
+      <Address>28</Address>
+      <ExternalId>95</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>All measurement related alarms</Description>
+          <IdString>EE_ALARM_OUT_MASK_MEASURE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>Empty pipe detections</Description>
+          <IdString>EE_ALARM_OUT_MASK_EPIPE</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>21</ID>
+      <Name>EE_DISPLAY_CHARGE_PUMP</Name>
+      <Description>Enables the LCD charge pump to increase the drive voltage to 3V</Description>
+      <Address>29</Address>
+      <ExternalId>96</ExternalId>
+      <ExecutionMask>1073741824</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>disabled</Description>
+          <IdString>EE_DISPLAY_CHARGE_PUMP_DISABLED</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>enabled</Description>
+          <IdString>EE_DISPLAY_CHARGE_PUMP_ENABLED</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>22</ID>
+      <Name>EE_SENSOR_MODEL</Name>
+      <Description>coupled sensor model</Description>
+      <Address>32</Address>
+      <ExternalId>15</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>12</Size>
+      <Default>EMPTY_STR</Default>
+      <Minimum>0</Minimum>
+      <Maximum>12</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>23</ID>
+      <Name>EE_OTHER_FEAT</Name>
+      <Description>additional features</Description>
+      <Address>44</Address>
+      <ExternalId>16</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>EMPTY_STR</Default>
+      <Minimum>0</Minimum>
+      <Maximum>20</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>24</ID>
+      <Name>EE_CONV_ID</Name>
+      <Description>converter ID</Description>
+      <Address>64</Address>
+      <ExternalId>17</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>9</Size>
+      <Default>EMPTY_STR</Default>
+      <Minimum>0</Minimum>
+      <Maximum>9</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>25</ID>
+      <Name>EE_SENSOR_ID</Name>
+      <Description>coupled sensor ID</Description>
+      <Address>73</Address>
+      <ExternalId>18</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>9</Size>
+      <Default>EMPTY_STR</Default>
+      <Minimum>0</Minimum>
+      <Maximum>9</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>26</ID>
+      <Name>EE_CONV_SN</Name>
+      <Description>converter serial number</Description>
+      <Address>82</Address>
+      <ExternalId>19</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0x00000000</Default>
+      <Minimum>0x00000000</Minimum>
+      <Maximum>0xFFFFFFFF</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>27</ID>
+      <Name>EE_CAL_DATE</Name>
+      <Description>meter calibration date</Description>
+      <Address>86</Address>
+      <ExternalId>20</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>8</Size>
+      <Default>EMPTY_STR</Default>
+      <Minimum>0</Minimum>
+      <Maximum>8</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>28</ID>
+      <Name>EE_DEV_NAME</Name>
+      <Description>converter model</Description>
+      <Address>96</Address>
+      <ExternalId>21</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>8</Size>
+      <Default>"MUT7000"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>8</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>29</ID>
+      <Name>EE_MANUFACTURER</Name>
+      <Description>manufacturing company</Description>
+      <Address>104</Address>
+      <ExternalId>22</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>10</Size>
+      <Default>"Euromag"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>10</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>30</ID>
+      <Name>EE_FW_EXECUTION_EN</Name>
+      <Description>Crc integrity/fw execution enable flag</Description>
+      <Address>114</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>1</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>No CRC errors, execution enabled</Description>
+          <IdString>EE_FW_EXECUTION_ENABLED</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>FW CRC error, execution disabled</Description>
+          <IdString>EE_FW_EXECUTION_FW_ERROR</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>EEPROM CRC error, execution disabled</Description>
+          <IdString>EE_FW_EXECUTION_EEPROM_ERROR</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>31</ID>
+      <Name>EE_PRODUCT_VARIANT</Name>
+      <Description>product variant info</Description>
+      <Address>115</Address>
+      <ExternalId>23</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>standard</Description>
+          <IdString>EE_VARIANT_STANDARD</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>MC4061 pulses only</Description>
+          <IdString>EE_VARIANT_MC4061_PONLY</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>MC4061_full</Description>
+          <IdString>EE_VARIANT_MC4061_FULL</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>MC4062_full</Description>
+          <IdString>EE_VARIANT_MC4062_FULL</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>32</ID>
+      <Name>EE_PASSWORD</Name>
+      <Description>menu access password</Description>
+      <Address>116</Address>
+      <ExternalId>24</ExternalId>
+      <ExecutionMask>268435456</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>999999</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>33</ID>
+      <Name>EE_BASE_SEC</Name>
+      <Description>total operation time in low power mode [s]</Description>
+      <Address>128</Address>
+      <ExternalId>25</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0x00000000</Default>
+      <Minimum>0x00000000</Minimum>
+      <Maximum>0xFFFFFFFF</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>34</ID>
+      <Name>EE_MCOUNT</Name>
+      <Description>total number of measure samples aquired </Description>
+      <Address>132</Address>
+      <ExternalId>26</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0x00000000</Default>
+      <Minimum>0x00000000</Minimum>
+      <Maximum>0xFFFFFFFF</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>35</ID>
+      <Name>EE_uAh_TOT</Name>
+      <Description>nominal battery pack capacity [uAh]</Description>
+      <Address>136</Address>
+      <ExternalId>27</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>38000000</Default>
+      <Minimum>1e6</Minimum>
+      <Maximum>1e9</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>36</ID>
+      <Name>EE_uAh_LEFT</Name>
+      <Description>residual battery pack energy [uAh]</Description>
+      <Address>140</Address>
+      <ExternalId>28</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>38000000</Default>
+      <Minimum>1e6</Minimum>
+      <Maximum>1e9</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>37</ID>
+      <Name>EE_AWAKE_SEC</Name>
+      <Description>total operation time in awake mode [s]</Description>
+      <Address>144</Address>
+      <ExternalId>29</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0x00000000</Default>
+      <Minimum>0x00000000</Minimum>
+      <Maximum>0xFFFFFFFF</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>38</ID>
+      <Name>EE_ACC_START</Name>
+      <Description>totalizer data start address</Description>
+      <Address>224</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>30</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>39</ID>
+      <Name>EE_CUSTOMIZED_CONV_ID</Name>
+      <Description>converter id for customized devices</Description>
+      <Address>288</Address>
+      <ExternalId>30</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>24</Size>
+      <Default>"9876543210"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>24</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>40</ID>
+      <Name>EE_CUSTIMIZED_SENSOR_ID</Name>
+      <Description>sensor id for customized devices</Description>
+      <Address>320</Address>
+      <ExternalId>31</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>24</Size>
+      <Default>"0123456789"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>24</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>41</ID>
+      <Name>EE_CUSTOMIZED_SENSOR_MODEL</Name>
+      <Description>sensor model for customized devices</Description>
+      <Address>352</Address>
+      <ExternalId>32</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>24</Size>
+      <Default>"customized sens. model"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>24</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>42</ID>
+      <Name>EE_CUSTOMIZED_DEV_NAME</Name>
+      <Description>dev name for customized devices</Description>
+      <Address>384</Address>
+      <ExternalId>33</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_STR</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>24</Size>
+      <Default>"customized conv. model"</Default>
+      <Minimum>0</Minimum>
+      <Maximum>24</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>43</ID>
+      <Name>EE_CUSTOMIZED_INFO_ENABLE</Name>
+      <Description>enable customized info</Description>
+      <Address>408</Address>
+      <ExternalId>34</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>44</ID>
+      <Name>EE_ENABLE_BT_RS485</Name>
+      <Description>flags to enable BT, RS485 settings</Description>
+      <Address>416</Address>
+      <ExternalId>35</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>all disabled</Description>
+          <IdString>EE_BT_RS485_DISABLED</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>bt enabled</Description>
+          <IdString>EE_BT_ONLY_ENABLED</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>rs485 enabled</Description>
+          <IdString>EE_RS485_ONLY_ENABLED</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>all enabled</Description>
+          <IdString>EE_BT_RS485_ENABLED</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>45</ID>
+      <Name>EE_BT_ON_INTERVAL</Name>
+      <Description>bluetooth on interval</Description>
+      <Address>417</Address>
+      <ExternalId>36</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>on if device awake</Description>
+          <IdString>EE_BT_ON_IF_AWAKE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>always on</Description>
+          <IdString>EE_BT_ALWAYS_ON</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>46</ID>
+      <Name>EE_RS485_BAUDRATE</Name>
+      <Description>rs485 baudrate</Description>
+      <Address>419</Address>
+      <ExternalId>37</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>0</Minimum>
+      <Maximum>5</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>2400</Description>
+          <IdString>EE_RS485_BAUD_2400</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>4800</Description>
+          <IdString>EE_RS485_BAUD_4800</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>9600</Description>
+          <IdString>EE_RS485_BAUD_9600</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>19200</Description>
+          <IdString>EE_RS485_BAUD_19200</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>38400</Description>
+          <IdString>EE_RS485_BAUD_38400</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>57600</Description>
+          <IdString>EE_RS485_BAUD_57600</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>47</ID>
+      <Name>EE_RS485_DATA_NUM_BIT</Name>
+      <Description>rs485 data num bit</Description>
+      <Address>420</Address>
+      <ExternalId>38</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>8 bit data</Description>
+          <IdString>EE_RS485_8DATA_BIT</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>7 bit data</Description>
+          <IdString>EE_RS485_7DATA_BIT</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>48</ID>
+      <Name>EE_RS485_PARITY</Name>
+      <Description>rs485 parity</Description>
+      <Address>421</Address>
+      <ExternalId>39</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>parity none</Description>
+          <IdString>EE_RS485_PARITY_NONE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>parity odd</Description>
+          <IdString>EE_RS485_PARITY_ODD</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>parity even</Description>
+          <IdString>EE_RS485_PARITY_EVEN</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>49</ID>
+      <Name>EE_RS485_STOP_BITS</Name>
+      <Description>rs485 stop bits</Description>
+      <Address>422</Address>
+      <ExternalId>40</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>1 bit stop</Description>
+          <IdString>EE_RS485_1_STOP_BITS</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>2 bit stop</Description>
+          <IdString>EE_RS485_2_STOP_BITS</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>50</ID>
+      <Name>EE_RS485_MODBUS_ADDR</Name>
+      <Description>rs485 modbus addrs - slave mode</Description>
+      <Address>424</Address>
+      <ExternalId>41</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>1</Minimum>
+      <Maximum>255</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>51</ID>
+      <Name>EE_RS485_MODUBUS_BYTE_ORDER</Name>
+      <Description>modbus byte order</Description>
+      <Address>425</Address>
+      <ExternalId>42</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>little endian byte swap</Description>
+          <IdString>EE_RS485_MODBUS_LITTLE_ENDIAN_BYTE_SWAP</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>big endian</Description>
+          <IdString>EE_RS485_MODBUS_BIG_ENDIAN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>little endian</Description>
+          <IdString>EE_RS485_MODBUS_LITTLE_ENDIAN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>big endian byte swap</Description>
+          <IdString>EE_RS485_MODBUS_BIG_ENDIAN_BYTE_SWA</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>52</ID>
+      <Name>EE_RS485_MODUBUS_MAP</Name>
+      <Description>modbus map</Description>
+      <Address>428</Address>
+      <ExternalId>43</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>euromag modbus map</Description>
+          <IdString>EE_RS485_MODBUS_MAP_EUROMAG</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>sofrel modbus map</Description>
+          <IdString>EE_RS485_MODBUS_MAP_SOFREL</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>53</ID>
+      <Name>EE_BT_CONN_TIMEOUT</Name>
+      <Description>bluetooth conn timeout</Description>
+      <Address>429</Address>
+      <ExternalId>84</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>0</Minimum>
+      <Maximum>5</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>BT conn timeut 5 min</Description>
+          <IdString>EE_BT_TIMEOUT_5MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>BT conn timeut 10 min</Description>
+          <IdString>EE_BT_TIMEOUT_10MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>BT conn timeut 15 min</Description>
+          <IdString>EE_BT_TIMEOUT_15MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>BT conn timeut 30 min</Description>
+          <IdString>EE_BT_TIMEOUT_30MIN</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>BT conn timeut 1 h</Description>
+          <IdString>EE_BT_TIMEOUT_1H</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>BT conn timeut 2 h</Description>
+          <IdString>EE_BT_TIMEOUT_2H</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>54</ID>
+      <Name>EE_PULSES_OUT_uAh_ALARM</Name>
+      <Description>pulses output alarm threshold for elevated consumption [uAh]</Description>
+      <Address>430</Address>
+      <ExternalId>97</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>150</Default>
+      <Minimum>10</Minimum>
+      <Maximum>1000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>55</ID>
+      <Name>EE_PULSES_OUT_ENERGY_GUARD</Name>
+      <Description>pulses out automatic disabling if the uAh hourly consumption is over the alarm threshold</Description>
+      <Address>432</Address>
+      <ExternalId>98</ExternalId>
+      <ExecutionMask>2097152</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>guard disabled</Description>
+          <IdString>EE_PULSES_OUT_ENERGY_GUARD_OFF</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>guard active</Description>
+          <IdString>EE_PULSES_OUT_ENERGY_GUARD_ON</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>56</ID>
+      <Name>EE_UT_FLOW</Name>
+      <Description>flowrate technical unit index</Description>
+      <Address>433</Address>
+      <ExternalId>53</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>1</Minimum>
+      <Maximum>7</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>meter [m]</Description>
+          <IdString>EE_UT_FLOW_M</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>cubic meter [m3]</Description>
+          <IdString>EE_UT_FLOW_M3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>liter [L]</Description>
+          <IdString>EE_UT_FLOW_L</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>mega liter [ML]</Description>
+          <IdString>EE_UT_FLOW_ML</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>cubic foot [ft3]</Description>
+          <IdString>EE_UT_FLOW_FT3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>6</Value>
+          <Description>US liquid gallon [gal]</Description>
+          <IdString>EE_UT_FLOW_GAL</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>7</Value>
+          <Description>US Oil Barrel [BBL]</Description>
+          <IdString>EE_UT_FLOW_BBL</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>57</ID>
+      <Name>EE_TB_FLOW</Name>
+      <Description>flowrate time base index </Description>
+      <Address>434</Address>
+      <ExternalId>54</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>1</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>second [s]</Description>
+          <IdString>SEE_TB_FLOW_S</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>minute [m]</Description>
+          <IdString>SEE_TB_FLOW_M</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>hour [h]</Description>
+          <IdString>SEE_TB_FLOW_H</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>day [d]</Description>
+          <IdString>SEE_TB_FLOW_D</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>58</ID>
+      <Name>EE_NDEC_INST</Name>
+      <Description>decimal digits count (flowrate)</Description>
+      <Address>435</Address>
+      <ExternalId>56</ExternalId>
+      <ExecutionMask>33554432</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>0</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>59</ID>
+      <Name>EE_STDEV_SAMPLES</Name>
+      <Description>standard deviation calculation samples count (will be limited to the active damping count on the firmware)
+
+</Description>
+      <Address>436</Address>
+      <ExternalId>99</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>10</Default>
+      <Minimum>2</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>disabled</Description>
+          <IdString>EE_STDEV_CALC_DIS</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>enabled</Description>
+          <IdString>EE_STDEV_CALC_EN</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>60</ID>
+      <Name>EE_DEBUG_LOG_TIME</Name>
+      <Description>Debug log activity timeout after activation [s]</Description>
+      <Address>437</Address>
+      <ExternalId>100</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>300</Default>
+      <Minimum>30</Minimum>
+      <Maximum>64800</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>61</ID>
+      <Name>EE_NSAMPLES_ZERO</Name>
+      <Description>number of samples to average to calculate the sensor offset</Description>
+      <Address>439</Address>
+      <ExternalId>101</ExternalId>
+      <ExecutionMask>1048576</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>250</Default>
+      <Minimum>50</Minimum>
+      <Maximum>20000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>62</ID>
+      <Name>EE_NSAMPLES_INTERVAL_ZSTAB</Name>
+      <Description>number of samples between intervals on the zero stability array</Description>
+      <Address>441</Address>
+      <ExternalId>102</ExternalId>
+      <ExecutionMask>1048576</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>10</Default>
+      <Minimum>1</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>63</ID>
+      <Name>EE_MAX_DIFF_ZSTAB</Name>
+      <Description>maximum difference between the progressive average points</Description>
+      <Address>442</Address>
+      <ExternalId>103</ExternalId>
+      <ExecutionMask>1048576</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.001</Default>
+      <Minimum>0.0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>64</ID>
+      <Name>EE_LOST_ACC_TOT</Name>
+      <Description>Lost totalizer tot</Description>
+      <Address>512</Address>
+      <ExternalId>85</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>65</ID>
+      <Name>EE_LOST_TOT_START_DATE</Name>
+      <Description>Date time of first data lost</Description>
+      <Address>516</Address>
+      <ExternalId>86</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_DATA</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>6</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum />
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>66</ID>
+      <Name>EE_LOST_TOT_EV_COUNTER</Name>
+      <Description>Counter of lost events</Description>
+      <Address>522</Address>
+      <ExternalId>87</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum />
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>67</ID>
+      <Name>EE_LOST_TOT_DURATION</Name>
+      <Description>Total lost duration - sec</Description>
+      <Address>524</Address>
+      <ExternalId>88</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_UL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum />
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>68</ID>
+      <Name>EE_LOST_ACC_CURR</Name>
+      <Description>Lost totalizer curr</Description>
+      <Address>528</Address>
+      <ExternalId>89</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>69</ID>
+      <Name>EE_LOST_CURR_DATE</Name>
+      <Description>Date time of current lost</Description>
+      <Address>532</Address>
+      <ExternalId>90</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_DATA</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>6</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum />
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>70</ID>
+      <Name>EE_LOST_CURR_DURATION</Name>
+      <Description>Curr lost duration - sec</Description>
+      <Address>538</Address>
+      <ExternalId>91</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum />
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>71</ID>
+      <Name>EE_DETECT_PWR_INTERR</Name>
+      <Description>Detec power interruption</Description>
+      <Address>540</Address>
+      <ExternalId>92</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>Detect disabled</Description>
+          <IdString>DETECT_OFF</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>Detect enabled</Description>
+          <IdString>DETECT_ON</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>72</ID>
+      <Name>EE_ACC_TOT_START_1</Name>
+      <Description>totalizer data 1 start address</Description>
+      <Address>640</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>73</ID>
+      <Name>EE_ACC_TOT_START_2</Name>
+      <Description>totalizer data 2 start address</Description>
+      <Address>672</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>74</ID>
+      <Name>EE_ACC_TOT_START_3</Name>
+      <Description>totalizer data 3 start address</Description>
+      <Address>704</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>75</ID>
+      <Name>EE_ACC_PART_START_1</Name>
+      <Description>totalizer part data 1 start address</Description>
+      <Address>1280</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>76</ID>
+      <Name>EE_ACC_PART_START_2</Name>
+      <Description>totalizer part data 2 start address</Description>
+      <Address>1312</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>77</ID>
+      <Name>EE_ACC_PART_START_3</Name>
+      <Description>totalizer part data 3 start address</Description>
+      <Address>1344</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_PLACE_HOLDER</Type>
+      <IsSizeFixed>false</IsSizeFixed>
+      <Size>18</Size>
+      <Default>0</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>78</ID>
+      <Name>SEE_KEY</Name>
+      <Description>SEE memory configuration key</Description>
+      <Address>4096</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>0x3C6A</Default>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>79</ID>
+      <Name>SEE_KA</Name>
+      <Description>sensor calibration factor </Description>
+      <Address>4098</Address>
+      <ExternalId>44</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>1.0</Default>
+      <Minimum>-10.0</Minimum>
+      <Maximum>10.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>80</ID>
+      <Name>SEE_DIAMETER</Name>
+      <Description>sensor nominal internal diameter [mm]</Description>
+      <Address>4102</Address>
+      <ExternalId>45</ExternalId>
+      <ExecutionMask>131073</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>50</Default>
+      <Minimum>1</Minimum>
+      <Maximum>4000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>81</ID>
+      <Name>SEE_SENSOR_OFFSET</Name>
+      <Description>sensor offset</Description>
+      <Address>4104</Address>
+      <ExternalId>46</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>-1e10</Minimum>
+      <Maximum>1e10</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>82</ID>
+      <Name>SEE_EXC_PAUSE</Name>
+      <Description>coil excitation stabilization delay [ms]</Description>
+      <Address>4108</Address>
+      <ExternalId>47</ExternalId>
+      <ExecutionMask>2</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>15</Default>
+      <Minimum>1</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>83</ID>
+      <Name>SEE_KALIGN</Name>
+      <Description>converter alignment calibration factor</Description>
+      <Address>4109</Address>
+      <ExternalId>48</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>1.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>84</ID>
+      <Name>SEE_OFFALIGN</Name>
+      <Description>converter alignment offset</Description>
+      <Address>4113</Address>
+      <ExternalId>49</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0</Default>
+      <Minimum>-1e10</Minimum>
+      <Maximum>1e10</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>85</ID>
+      <Name>SEE_CUTOFF</Name>
+      <Description>flowrate cut-off filter [m/s / 100]</Description>
+      <Address>4117</Address>
+      <ExternalId>50</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>2</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>86</ID>
+      <Name>SEE_MEAS_FREQ</Name>
+      <Description>low power measuring period [s]</Description>
+      <Address>4119</Address>
+      <ExternalId>51</ExternalId>
+      <ExecutionMask>65536</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>15</Default>
+      <Minimum>1</Minimum>
+      <Maximum>60</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>87</ID>
+      <Name>SEE_DAMPING</Name>
+      <Description>average count (flow measure samples)</Description>
+      <Address>4120</Address>
+      <ExternalId>52</ExternalId>
+      <ExecutionMask>1048576</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>30</Default>
+      <Minimum>2</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>88</ID>
+      <Name>SEE_UT_FLOW_OLD</Name>
+      <Description>flowrate technical unit index (migrated to unsecure EEPROM)</Description>
+      <Address>4122</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>1</Minimum>
+      <Maximum>7</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>meter [m]</Description>
+          <IdString>SEE_UT_FLOW_M</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>cubic meter [m3]</Description>
+          <IdString>SEE_UT_FLOW_M3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>liter [L]</Description>
+          <IdString>SEE_UT_FLOW_L</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>mega liter [ML]</Description>
+          <IdString>SEE_UT_FLOW_ML</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>cubic foot [ft3]</Description>
+          <IdString>SEE_UT_FLOW_FT3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>6</Value>
+          <Description>US liquid gallon [gal]</Description>
+          <IdString>SEE_UT_FLOW_GAL</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>7</Value>
+          <Description>US Oil Barrel (BBL)</Description>
+          <IdString>SEE_UT_FLOW_BBL</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>89</ID>
+      <Name>SEE_TB_FLOW_OLD</Name>
+      <Description>flowrate time base index (migrated to unsecure EEPROM)</Description>
+      <Address>4123</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>1</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>second [s]</Description>
+          <IdString>SEE_TB_FLOW_S</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>minute [m]</Description>
+          <IdString>SEE_TB_FLOW_M</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>hour [h]</Description>
+          <IdString>SEE_TB_FLOW_H</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>day [d]</Description>
+          <IdString>SEE_TB_FLOW_D</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>90</ID>
+      <Name>SEE_UT_ACC</Name>
+      <Description>totalizers technical unit index</Description>
+      <Address>4124</Address>
+      <ExternalId>55</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>2</Minimum>
+      <Maximum>8</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>cubic meter [m3]</Description>
+          <IdString>SEE_UT_ACC_M3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>liter [L]</Description>
+          <IdString>SEE_UT_ACC_L</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>mega liter [ML]</Description>
+          <IdString>SEE_UT_ACC_ML</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>US liquid gallon [gal]</Description>
+          <IdString>SEE_UT_ACC_GAL</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>6</Value>
+          <Description>US Oil Barrel [BBL]</Description>
+          <IdString>SEE_UT_ACC_BBL</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>7</Value>
+          <Description>Acre foot [a-ft]</Description>
+          <IdString>SEE_UT_ACC_AFT</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>8</Value>
+          <Description>Acre inch [a-in]</Description>
+          <IdString>SEE_UT_ACC_AIN</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>91</ID>
+      <Name>SEE_NDEC_INST_OLD</Name>
+      <Description>decimal digits count (flowrate) - moved to unsecure EEPROM</Description>
+      <Address>4125</Address>
+      <ExternalId>0</ExternalId>
+      <ExecutionMask>33554432</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>0</Minimum>
+      <Maximum>4</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>92</ID>
+      <Name>SEE_NDEC_ACC</Name>
+      <Description>decimal digits count (totalizers)</Description>
+      <Address>4128</Address>
+      <ExternalId>57</ExternalId>
+      <ExecutionMask>33554432</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>93</ID>
+      <Name>SEE_FS_MS</Name>
+      <Description>flowrate full-scale [m/s / 10]</Description>
+      <Address>4129</Address>
+      <ExternalId>58</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>100</Default>
+      <Minimum>10</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>94</ID>
+      <Name>SEE_BYPASS</Name>
+      <Description>bypass filter threshold [%full scale]</Description>
+      <Address>4130</Address>
+      <ExternalId>59</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>50</Default>
+      <Minimum>2</Minimum>
+      <Maximum>95</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>95</ID>
+      <Name>SEE_PEAK_CUT</Name>
+      <Description>peak cut filter threshold [%full scale]</Description>
+      <Address>4131</Address>
+      <ExternalId>60</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>5</Default>
+      <Minimum>1</Minimum>
+      <Maximum>90</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>96</ID>
+      <Name>SEE_BYPASS_COUNT</Name>
+      <Description>bypass filter minimum consecutive events</Description>
+      <Address>4132</Address>
+      <ExternalId>61</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>3</Default>
+      <Minimum>1</Minimum>
+      <Maximum>30</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>97</ID>
+      <Name>SEE_PEAKCUT_COUNT</Name>
+      <Description>peak-cut filter maximum consecutive events</Description>
+      <Address>4133</Address>
+      <ExternalId>62</ExternalId>
+      <ExecutionMask>4194304</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>1</Minimum>
+      <Maximum>30</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>98</ID>
+      <Name>SEE_OFFSET_REG</Name>
+      <Description>input stage bias compensation switch closing time [ms]</Description>
+      <Address>4134</Address>
+      <ExternalId>63</ExternalId>
+      <ExecutionMask>65536</ExecutionMask>
+      <Type>TYPE_UC</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>1</Minimum>
+      <Maximum>20</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>99</ID>
+      <Name>SEE_TMEAS_SD24</Name>
+      <Description>flow measurment internal 24bit sigma-delta decimator sampling index</Description>
+      <Address>4135</Address>
+      <ExternalId>64</ExternalId>
+      <ExecutionMask>65536</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>2</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>Single length</Description>
+          <IdString>SEE_TMEAS_SD24_SINGLE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>Double length</Description>
+          <IdString>SEE_TMEAS_SD24_DOUBLE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>Quad length</Description>
+          <IdString>SEE_TMEAS_SD24_QUAD</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>100</ID>
+      <Name>SEE_MEAS_WD_EN</Name>
+      <Description>measuring electrodes dry condition detect configuration</Description>
+      <Address>4136</Address>
+      <ExternalId>65</ExternalId>
+      <ExecutionMask>524288</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>1</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>disabled</Description>
+          <IdString>SEE_MEAS_WD_EN_ON</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>enabled</Description>
+          <IdString>SEE_MEAS_WD_EN_OFF</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>101</ID>
+      <Name>SEE_MEAS_WD_TH</Name>
+      <Description>dry condition detect threshold (measuring electrodes)</Description>
+      <Address>4137</Address>
+      <ExternalId>66</ExternalId>
+      <ExecutionMask>524288</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>100</Default>
+      <Minimum>10</Minimum>
+      <Maximum>1000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>102</ID>
+      <Name>SEE_ADC_GAIN</Name>
+      <Description>24bit sigma-delta gain index (flow measure)</Description>
+      <Address>4139</Address>
+      <ExternalId>67</ExternalId>
+      <ExecutionMask>65536</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>7</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>gain 1</Description>
+          <IdString>SEE_ADC_GAIN_1</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>gain 2</Description>
+          <IdString>SEE_ADC_GAIN_2</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>gain 4</Description>
+          <IdString>SEE_ADC_GAIN_4</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>gain 8</Description>
+          <IdString>SEE_ADC_GAIN_8</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>4</Value>
+          <Description>gain 16</Description>
+          <IdString>SEE_ADC_GAIN_16</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>5</Value>
+          <Description>gain 32</Description>
+          <IdString>SEE_ADC_GAIN_32</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>6</Value>
+          <Description>gain 64</Description>
+          <IdString>SEE_ADC_GAIN_64</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>7</Value>
+          <Description>gain 128</Description>
+          <IdString>SEE_ADC_GAIN_128</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>103</ID>
+      <Name>SEE_MEAS_AWAKE_MS</Name>
+      <Description>continuous mode sampling period [ms]</Description>
+      <Address>4140</Address>
+      <ExternalId>68</ExternalId>
+      <ExecutionMask>262144</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>300</Default>
+      <Minimum>100</Minimum>
+      <Maximum>1000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>104</ID>
+      <Name>SEE_INPUT_STAGE_STAB</Name>
+      <Description>input stage stabilization time [ms]</Description>
+      <Address>4142</Address>
+      <ExternalId>69</ExternalId>
+      <ExecutionMask>65536</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>700</Default>
+      <Minimum>50</Minimum>
+      <Maximum>2000</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>105</ID>
+      <Name>SEE_DAMPING_SLOW</Name>
+      <Description>average count when sleeping (flow measure samples)</Description>
+      <Address>4144</Address>
+      <ExternalId>70</ExternalId>
+      <ExecutionMask>1048576</ExecutionMask>
+      <Type>TYPE_US</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>2</Size>
+      <Default>8</Default>
+      <Minimum>2</Minimum>
+      <Maximum>100</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>106</ID>
+      <Name>SEE_LINE_FREQ</Name>
+      <Description>power line frequency (50/60Hz)</Description>
+      <Address>4146</Address>
+      <ExternalId>71</ExternalId>
+      <ExecutionMask>2</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>50 Hz</Description>
+          <IdString>EE_LINE_FREQ_50HZ</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>60 Hz</Description>
+          <IdString>EE_LINE_FREQ_60HZ</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>107</ID>
+      <Name>SEE_DEVICE_CERT</Name>
+      <Description>Device Certification</Description>
+      <Address>4147</Address>
+      <ExternalId>72</ExternalId>
+      <ExecutionMask>0</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>No certification</Description>
+          <IdString>SEE_CERT_NONE</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>MID certification</Description>
+          <IdString>SEE_CERT_MID</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>108</ID>
+      <Name>SEE_INTERP_sA_LO</Name>
+      <Description>A(x^3) interpolation coefficient - low velocity</Description>
+      <Address>4160</Address>
+      <ExternalId>73</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>109</ID>
+      <Name>SEE_INTERP_sB_LO</Name>
+      <Description>B(x^2) interpolation coefficient - low velocity</Description>
+      <Address>4164</Address>
+      <ExternalId>74</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>110</ID>
+      <Name>SEE_INTERP_sC_LO</Name>
+      <Description>Cx interpolation coefficient - low velocity</Description>
+      <Address>4168</Address>
+      <ExternalId>75</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>111</ID>
+      <Name>SEE_INTERP_sD_LO</Name>
+      <Description>D interpolation coefficient - low velocity</Description>
+      <Address>4172</Address>
+      <ExternalId>76</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>112</ID>
+      <Name>SEE_INTERP_sA_HI</Name>
+      <Description>A(x^3) interpolation coefficient - high velocity</Description>
+      <Address>4176</Address>
+      <ExternalId>77</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>113</ID>
+      <Name>SEE_INTERP_sB_HI</Name>
+      <Description>B(x^2) interpolation coefficient - high velocity</Description>
+      <Address>4180</Address>
+      <ExternalId>78</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>114</ID>
+      <Name>SEE_INTERP_sC_HI</Name>
+      <Description>Cx interpolation coefficient - high velocity</Description>
+      <Address>4184</Address>
+      <ExternalId>79</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>115</ID>
+      <Name>SEE_INTERP_sD_HI</Name>
+      <Description>D interpolation coefficient - high velocity</Description>
+      <Address>4192</Address>
+      <ExternalId>80</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>0.0</Default>
+      <Minimum>-100.0</Minimum>
+      <Maximum>100.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>116</ID>
+      <Name>SEE_INTERP_TH</Name>
+      <Description>intrtpolation threshold between low and high curves</Description>
+      <Address>4196</Address>
+      <ExternalId>81</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_FL</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>4</Size>
+      <Default>3.0</Default>
+      <Minimum>0.0</Minimum>
+      <Maximum>25.0</Maximum>
+      <OptionsSet />
+    </VariableModel>
+    <VariableModel>
+      <ID>117</ID>
+      <Name>SEE_COIL_CURRENT_SET</Name>
+      <Description>coil excitation current set [mA]</Description>
+      <Address>4200</Address>
+      <ExternalId>82</ExternalId>
+      <ExecutionMask>262144</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>2</Default>
+      <Minimum>0</Minimum>
+      <Maximum>3</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>level 1</Description>
+          <IdString>SEE_COIL_LEV1</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>level 2</Description>
+          <IdString>SEE_COIL_LEV2</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>2</Value>
+          <Description>level 3</Description>
+          <IdString>SEE_COIL_LEV3</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>3</Value>
+          <Description>level 4</Description>
+          <IdString>SEE_COIL_LEV4</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+    <VariableModel>
+      <ID>118</ID>
+      <Name>SEE_SELECT_LINEARIZATION</Name>
+      <Description>Linearization functionality select</Description>
+      <Address>4201</Address>
+      <ExternalId>83</ExternalId>
+      <ExecutionMask>131072</ExecutionMask>
+      <Type>TYPE_ENUM</Type>
+      <IsSizeFixed>true</IsSizeFixed>
+      <Size>1</Size>
+      <Default>0</Default>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <OptionsSet>
+        <OptionModel>
+          <Value>0</Value>
+          <Description>disabled</Description>
+          <IdString>SEE_LINEAR_OFF</IdString>
+        </OptionModel>
+        <OptionModel>
+          <Value>1</Value>
+          <Description>cubic interpolation</Description>
+          <IdString>SEE_CUB_INTERP</IdString>
+        </OptionModel>
+      </OptionsSet>
+    </VariableModel>
+  </Variables>
+  <Pages_MUT7000>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_A</Name>
+      <Description>Unprotected parameters</Description>
+      <Index>0</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_1</Name>
+      <Description>Device information </Description>
+      <Index>1</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_2</Name>
+      <Description>Device information </Description>
+      <Index>2</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_3</Name>
+      <Description>Device information </Description>
+      <Index>3</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>REGISTER_PAGE_A </Name>
+      <Description>Energy storage statistics</Description>
+      <Index>4</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_A_FACTORY_COPY</Name>
+      <Description>Page A factory copy</Description>
+      <Index>5</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_A_BKP_COPY</Name>
+      <Description>Page A backup copy</Description>
+      <Index>6</Index>
+      <BackupOf>0</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PAGE</Name>
+      <Description>Persisted measure's accumulator</Description>
+      <Index>7</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PAGE_COPY</Name>
+      <Description>Backup copy of persisted measure's accumulator</Description>
+      <Index>8</Index>
+      <BackupOf>7</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTIMIZED_CONV_ID_1</Name>
+      <Description>converter id for customized devices</Description>
+      <Index>9</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTIMIZED_CONV_ID_2</Name>
+      <Description>converter id for customized devices</Description>
+      <Index>10</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTIMIZED_CONV_ID_3</Name>
+      <Description>converter id for customized devices</Description>
+      <Index>11</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTIMIZED_CONV_ID_4</Name>
+      <Description>converter id for customized devices</Description>
+      <Index>12</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_B</Name>
+      <Description>Unprotected parameters</Description>
+      <Index>13</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_B_FACTORY_COPY</Name>
+      <Description>Page B factory copy</Description>
+      <Index>14</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>PARAMETERS_PAGE_B_BKP_COPY</Name>
+      <Description>Page B backup copy</Description>
+      <Index>15</Index>
+      <BackupOf>13</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_LOST_PAGE</Name>
+      <Description>Lost acc page</Description>
+      <Index>16</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_1</Name>
+      <Description>Persisted measure's tot accumulator pag1</Description>
+      <Index>20</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_2</Name>
+      <Description>Persisted measure's tot accumulator pag2</Description>
+      <Index>21</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_3</Name>
+      <Description>Persisted measure's tot accumulator pag3</Description>
+      <Index>22</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_4</Name>
+      <Description>Persisted measure's tot accumulator pag4</Description>
+      <Index>23</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_5</Name>
+      <Description>Persisted measure's tot accumulator pag5</Description>
+      <Index>24</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_6</Name>
+      <Description>Persisted measure's tot accumulator pag6</Description>
+      <Index>25</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_7</Name>
+      <Description>Persisted measure's tot accumulator pag7</Description>
+      <Index>26</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_8</Name>
+      <Description>Persisted measure's tot accumulator pag8</Description>
+      <Index>27</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_9</Name>
+      <Description>Persisted measure's tot accumulator pag9</Description>
+      <Index>28</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_10</Name>
+      <Description>Persisted measure's tot accumulator pag10</Description>
+      <Index>29</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_11</Name>
+      <Description>Persisted measure's tot accumulator pag11</Description>
+      <Index>30</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_12</Name>
+      <Description>Persisted measure's tot accumulator pag12</Description>
+      <Index>31</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_13</Name>
+      <Description>Persisted measure's tot accumulator pag13</Description>
+      <Index>32</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_14</Name>
+      <Description>Persisted measure's tot accumulator pag14</Description>
+      <Index>33</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_15</Name>
+      <Description>Persisted measure's tot accumulator pag15</Description>
+      <Index>34</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_16</Name>
+      <Description>Persisted measure's tot accumulator pag16</Description>
+      <Index>35</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_17</Name>
+      <Description>Persisted measure's tot accumulator pag17</Description>
+      <Index>36</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_18</Name>
+      <Description>Persisted measure's tot accumulator pag18</Description>
+      <Index>37</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_19</Name>
+      <Description>Persisted measure's tot accumulator pag19</Description>
+      <Index>38</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_20</Name>
+      <Description>Persisted measure's tot accumulator pag20</Description>
+      <Index>39</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_1</Name>
+      <Description>Persisted measure's part accumulator pag1</Description>
+      <Index>40</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_2</Name>
+      <Description>Persisted measure's part accumulator pag2</Description>
+      <Index>41</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_3</Name>
+      <Description>Persisted measure's part accumulator pag3</Description>
+      <Index>42</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_4</Name>
+      <Description>Persisted measure's part accumulator pag4</Description>
+      <Index>43</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_5</Name>
+      <Description>Persisted measure's part accumulator pag5</Description>
+      <Index>44</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_6</Name>
+      <Description>Persisted measure's part accumulator pag6</Description>
+      <Index>45</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_7</Name>
+      <Description>Persisted measure's part accumulator pag7</Description>
+      <Index>46</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_8</Name>
+      <Description>Persisted measure's part accumulator pag8</Description>
+      <Index>47</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_9</Name>
+      <Description>Persisted measure's part accumulator pag9</Description>
+      <Index>48</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_10</Name>
+      <Description>Persisted measure's part accumulator pag10</Description>
+      <Index>49</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_11</Name>
+      <Description>Persisted measure's part accumulator pag11</Description>
+      <Index>50</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_12</Name>
+      <Description>Persisted measure's part accumulator pag12</Description>
+      <Index>51</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_13</Name>
+      <Description>Persisted measure's part accumulator pag13</Description>
+      <Index>52</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_14</Name>
+      <Description>Persisted measure's part accumulator pag14</Description>
+      <Index>53</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_15</Name>
+      <Description>Persisted measure's part accumulator pag15</Description>
+      <Index>54</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_16</Name>
+      <Description>Persisted measure's part accumulator pag16</Description>
+      <Index>55</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_17</Name>
+      <Description>Persisted measure's part accumulator pag17</Description>
+      <Index>56</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_18</Name>
+      <Description>Persisted measure's part accumulator pag18</Description>
+      <Index>57</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_19</Name>
+      <Description>Persisted measure's part accumulator pag19</Description>
+      <Index>58</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_20</Name>
+      <Description>Persisted measure's part accumulator pag20</Description>
+      <Index>59</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_1_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag1</Description>
+      <Index>60</Index>
+      <BackupOf>20</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_2_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag2</Description>
+      <Index>61</Index>
+      <BackupOf>21</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_3_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag3</Description>
+      <Index>62</Index>
+      <BackupOf>22</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_4_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag4</Description>
+      <Index>63</Index>
+      <BackupOf>23</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_5_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag5</Description>
+      <Index>64</Index>
+      <BackupOf>24</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_6_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag6</Description>
+      <Index>65</Index>
+      <BackupOf>25</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_7_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag7</Description>
+      <Index>66</Index>
+      <BackupOf>26</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_8_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag8</Description>
+      <Index>67</Index>
+      <BackupOf>27</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_9_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag9</Description>
+      <Index>68</Index>
+      <BackupOf>28</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_10_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag10</Description>
+      <Index>69</Index>
+      <BackupOf>29</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_11_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag11</Description>
+      <Index>70</Index>
+      <BackupOf>30</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_12_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag12</Description>
+      <Index>71</Index>
+      <BackupOf>31</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_13_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag13</Description>
+      <Index>72</Index>
+      <BackupOf>32</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_14_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag14</Description>
+      <Index>73</Index>
+      <BackupOf>33</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_15_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag15</Description>
+      <Index>74</Index>
+      <BackupOf>34</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_16_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag16</Description>
+      <Index>75</Index>
+      <BackupOf>35</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_17_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag17</Description>
+      <Index>76</Index>
+      <BackupOf>36</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_18_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag18</Description>
+      <Index>77</Index>
+      <BackupOf>37</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_19_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag19</Description>
+      <Index>78</Index>
+      <BackupOf>38</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_TOT_PAGE_20_COPY</Name>
+      <Description>Backup copy of persisted measure's tot accumulator pag20</Description>
+      <Index>79</Index>
+      <BackupOf>39</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_1_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag1</Description>
+      <Index>80</Index>
+      <BackupOf>40</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_2_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag2</Description>
+      <Index>81</Index>
+      <BackupOf>41</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_3_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag3</Description>
+      <Index>82</Index>
+      <BackupOf>42</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_4_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag4</Description>
+      <Index>83</Index>
+      <BackupOf>43</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_5_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag5</Description>
+      <Index>84</Index>
+      <BackupOf>44</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_6_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag6</Description>
+      <Index>85</Index>
+      <BackupOf>45</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_7_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag7</Description>
+      <Index>86</Index>
+      <BackupOf>46</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_8_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag8</Description>
+      <Index>87</Index>
+      <BackupOf>47</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_9_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag9</Description>
+      <Index>88</Index>
+      <BackupOf>48</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_10_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag10</Description>
+      <Index>89</Index>
+      <BackupOf>49</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_11_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag11</Description>
+      <Index>90</Index>
+      <BackupOf>50</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_12_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag12</Description>
+      <Index>91</Index>
+      <BackupOf>51</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_13_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag13</Description>
+      <Index>92</Index>
+      <BackupOf>52</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_14_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag14</Description>
+      <Index>93</Index>
+      <BackupOf>53</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_15_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag15</Description>
+      <Index>94</Index>
+      <BackupOf>54</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_16_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag16</Description>
+      <Index>95</Index>
+      <BackupOf>55</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_17_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag17</Description>
+      <Index>96</Index>
+      <BackupOf>56</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_18_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag18</Description>
+      <Index>97</Index>
+      <BackupOf>57</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_19_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag19</Description>
+      <Index>98</Index>
+      <BackupOf>58</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_PART_PAGE_20_COPY</Name>
+      <Description>Backup copy of persisted measure's part accumulator pag20</Description>
+      <Index>99</Index>
+      <BackupOf>59</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>false</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_1_BKP_COPY</Name>
+      <Description>Info page A_1 backup copy</Description>
+      <Index>100</Index>
+      <BackupOf>1</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_2_BKP_COPY</Name>
+      <Description>Info page A_2 backup copy</Description>
+      <Index>101</Index>
+      <BackupOf>2</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>INFO_PAGE_A_3_BKP_COPY</Name>
+      <Description>Info page A_3 backup copy</Description>
+      <Index>102</Index>
+      <BackupOf>3</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>REGISTER_PAGE_A_BKP_COPY</Name>
+      <Description>register page A backup copy</Description>
+      <Index>103</Index>
+      <BackupOf>4</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTOMIZED_CONV_ID_1_BKP_COPY</Name>
+      <Description>converter id for customized devices page 1 backup</Description>
+      <Index>104</Index>
+      <BackupOf>9</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTOMIZED_CONV_ID_2_BKP_COPY</Name>
+      <Description>converter id for customized devices page 2 backup</Description>
+      <Index>105</Index>
+      <BackupOf>10</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTOMIZED_CONV_ID_3_BKP_COPY</Name>
+      <Description>converter id for customized devices page 3 backup</Description>
+      <Index>106</Index>
+      <BackupOf>11</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CUSTOMIZED_CONV_ID_4_BKP_COPY</Name>
+      <Description>converter id for customized devices page 4 backup</Description>
+      <Index>107</Index>
+      <BackupOf>12</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>ACC_LOST_PAGE_BKP_COPY</Name>
+      <Description>Lost acc page backup</Description>
+      <Index>108</Index>
+      <BackupOf>16</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_1</Name>
+      <Description>Write protected parameters</Description>
+      <Index>128</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_2</Name>
+      <Description>Write protected parameters</Description>
+      <Index>129</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_3</Name>
+      <Description>Write protected parameters</Description>
+      <Index>130</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_4</Name>
+      <Description>Write protected parameters</Description>
+      <Index>131</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_1_FACT_COPY</Name>
+      <Description>Factory copy of write protected parameters</Description>
+      <Index>132</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_2_FACT_COPY</Name>
+      <Description>Factory copy of write protected parameters</Description>
+      <Index>133</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_3_FACT_COPY</Name>
+      <Description>Factory copy of write protected parameters</Description>
+      <Index>134</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_4_FACT_COPY</Name>
+      <Description>Factory copy of write protected parameters</Description>
+      <Index>135</Index>
+      <BackupOf>65535</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_1_BKP_COPY</Name>
+      <Description>Calibration safe 1 backup copy</Description>
+      <Index>136</Index>
+      <BackupOf>128</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_2_BKP_COPY</Name>
+      <Description>Calibration safe 2 backup copy</Description>
+      <Index>137</Index>
+      <BackupOf>129</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_3_BKP_COPY</Name>
+      <Description>Calibration safe 3 backup copy</Description>
+      <Index>138</Index>
+      <BackupOf>130</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+    <PageModel>
+      <Name>CALIBRATION_SAFE_1_4_BKP_COPY</Name>
+      <Description>Calibration safe 4 backup copy</Description>
+      <Index>139</Index>
+      <BackupOf>131</BackupOf>
+      <LinkedTo>65535</LinkedTo>
+      <DependsOnKey>true</DependsOnKey>
+      <StringIndex>0</StringIndex>
+      <AddToTable>true</AddToTable>
+    </PageModel>
+  </Pages_MUT7000>
+  <Devices>
+    <DeviceModel>
+      <PageSize>0</PageSize>
+      <Name>Std eeprom MUT7000</Name>
+      <VariablesPrefix>EE</VariablesPrefix>
+      <Size>4096</Size>
+      <FirstAddress>0</FirstAddress>
+    </DeviceModel>
+    <DeviceModel>
+      <PageSize>0</PageSize>
+      <Name>Safe eeprom MUT7000</Name>
+      <VariablesPrefix>SEE</VariablesPrefix>
+      <Size>4096</Size>
+      <FirstAddress>4096</FirstAddress>
+    </DeviceModel>
+  </Devices>
+</MemoryModel>

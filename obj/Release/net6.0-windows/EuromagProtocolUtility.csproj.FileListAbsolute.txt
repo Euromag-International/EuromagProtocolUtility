@@ -37,3 +37,5 @@ C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Releas
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Release\net6.0-windows\App.baml
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Release\net6.0-windows\EuromagProtocolUtility.sourcelink.json
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Release\net6.0-windows\EuromagP.3FF0F5D0.Up2Date
+C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Release\net6.0-windows\MagNetEditor.g.cs
+C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Release\net6.0-windows\MagNetEditor.baml

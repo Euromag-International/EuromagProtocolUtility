@@ -17,6 +17,11 @@ using UniversalConnect.Memory;
 using UniversalConnect.Models;
 using UniversalConnect.StdCommands;
 using UniversalConnect;
+using System.Xml.Serialization;
+using static UniversalConnect.Models.MemoryModelMagNet;
+using System.Xml.Linq;
+using static EuromagProtocolUtility.CommonResources;
+using System.Windows.Shapes;
 
 namespace EuromagProtocolUtility
 {
@@ -828,6 +833,14 @@ namespace EuromagProtocolUtility
 
         public CollectionView GsmCommandTypes { get; set; }
 
+        public class FrameTypeVis
+        {
+            public string Name {  get; set; }
+            public string Value { get; set; }
+            public string Description { get; set; }
+        }
+        List<FrameTypeVis> FrameTypeList { get; set; }
+
         public enum FrameType
         {
             F_WAIT = 0x01,   //Frame di risposta, indica che l'operaione richiesta è in corso, inviare POKE
@@ -856,10 +869,10 @@ namespace EuromagProtocolUtility
             F_LOG_LOCKED = 0x42,   //Risposta di errore a 0x40
             F_LOG_READ_ERROR = 0x43,   //Risposta di errore a 0x40
 
-            F_LOG_ERASE = 0x46,   //Comando di erase log
+            F_LOG_ERASE = 0x46,         //Comando di erase log
             F_LOG_ERASE_ERROR = 0x47,   //Risposta di errore a 0x46
 
-            F_LOG_READ_LAST = 0x48,   //Lettura ultima riga di log
+            F_LOG_READ_LAST = 0x48,     //Lettura ultima riga di log
 
             F_LOG_START_FAST_DOWN = 0x4A,   //Comando start fast download log
             F_LOG_START_FAST_OK = 0x4B,   //Risposta a 0x4A
@@ -1001,6 +1014,83 @@ namespace EuromagProtocolUtility
             F_ERROR_GSM_STATUS_WR = 0xE3,    //error response frame over 0xD5 request
             F_ERROR_GSM_ID_WR = 0xE4,    //error response frame over 0xD7 request
             F_ERROR_GSM_ENTER_TEST = 0xE5     //error response frame over 0xD9 request
+        }
+
+        public string InstallationFolder
+        {
+            get
+            {
+                return System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "\\";
+            }
+        }
+
+        public string FramesListFileName
+        {
+            get
+            {
+                return "FramesList.csv";
+            }
+        }
+
+        public async void BuildFrameTypeView()
+        {
+            string FrameListFullName  = InstallationFolder + FramesListFileName;            
+
+            if (File.Exists(FrameListFullName))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(FrameListFullName))
+                    {
+                        string line;
+                        FrameTypesView.Clear();
+
+                        while ((line = await reader.ReadLineAsync()) != null)
+                        {
+                            String[] FrameData = line.Split(";");
+                            FrameTypeVis frameTypeVis = new FrameTypeVis();
+
+                            if (FrameData.Count() != 3)
+                            {
+                                string dummy = "sbot";
+                            }
+                            
+                            frameTypeVis.Name = FrameData[0];
+                            frameTypeVis.Value = FrameData[1];
+                            frameTypeVis.Description = FrameData[2];
+
+                            FrameTypesView.Add(frameTypeVis);
+                        }
+
+                        reader.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
+
+        private ObservableCollection<FrameTypeVis> _frameTypesView;
+        public ObservableCollection<FrameTypeVis> FrameTypesView
+        {
+            get
+            {
+                if (_frameTypesView == null)
+                    _frameTypesView = new ObservableCollection<FrameTypeVis>();
+
+                return _frameTypesView;
+            }
+            set
+            {
+                if (_frameTypesView != value)
+                {
+                    _frameTypesView = value;
+                    OnPropertyChanged("FrameTypesView");
+                }
+            }
         }
 
         private ObservableCollection<ParameterView> _deviceParametersView;
@@ -2146,12 +2236,13 @@ namespace EuromagProtocolUtility
         private void OpenXMLFile()
         {
             OpenFileDialog openDlg = new OpenFileDialog();
+            openDlg.InitialDirectory = InstallationFolder;
             openDlg.DefaultExt = ".xml";
             openDlg.Filter = "XML Data File (*.xml)|*.xml|All files (*.*)|*.*";
 
             if (openDlg.ShowDialog() == true)
             {
-                XmlFileName = Path.GetFileName(openDlg.FileName);
+                XmlFileName = System.IO.Path.GetFileName(openDlg.FileName);
 
                 DeviceParametersView.Clear();
                 DeviceParametersView = DeviceParameters.LoadXmlFile(openDlg.FileName);
@@ -2159,7 +2250,17 @@ namespace EuromagProtocolUtility
 
                 DeviceParameterList = DeviceParameters.DeviceParameterList;
 
-                MemoryModel DatabaseMemoryModel = DeviceParameters.GetDeviceMemoryModel(openDlg.FileName);
+                DatabaseMemoryModel = DeviceParameters.GetDeviceMemoryModel(openDlg.FileName);
+
+                if(DatabaseMemoryModel.Pages.Count != 0)
+                    DeviceParameters.RunningKey = Parameters.RunningKeys.MC406_Key;
+
+                if (DatabaseMemoryModel.Pages_MUT7000.Count != 0)
+                    DeviceParameters.RunningKey = Parameters.RunningKeys.MC7000_Key;
+
+
+                //BuildMagnetMemoryModel();
+                //BuildMagnetXml();
 
                 DeviceEEpromBundlesView.Clear();
 
@@ -3137,6 +3238,21 @@ namespace EuromagProtocolUtility
             }
         }
 
+        
+        private MemoryModel _databaseMemoryModel;
+        public MemoryModel DatabaseMemoryModel
+        {
+            get { return _databaseMemoryModel; }
+            set
+            {
+                if (value != _databaseMemoryModel)
+                {
+                    _databaseMemoryModel = value;
+                    OnPropertyChanged("DatabaseMemoryModel");
+                }
+            }
+        }
+
         private bool _controlsEnable;
         public bool ControlsEnable
         {
@@ -3788,6 +3904,7 @@ namespace EuromagProtocolUtility
         public void FillBundleInfo(PageModel page)
         {
             BundleIndex = page.Index;
+
             BundleSpanStart = page.Span.Start;
             BundleSpanStop = page.Span.Stop;
 
@@ -3798,7 +3915,7 @@ namespace EuromagProtocolUtility
 
                 if (ParEEPRomId != 0)
                 {
-                    if ((ParEEPRomId >= page.Span.Start) && (ParEEPRomId < page.Span.Stop))
+                    if ((ParEEPRomId >= BundleSpanStart) && (ParEEPRomId < BundleSpanStop))
                     {
                         DeviceEEpromBundlesListView.Add(_par);
                     }
@@ -3925,5 +4042,303 @@ namespace EuromagProtocolUtility
                 return Parameters.Instance;
             }
         }
+
+        private ICommand _buildMagnetXmlCmd;
+        public ICommand BuildMagnetXmlCmd
+        {
+            get
+            {
+                if (_buildMagnetXmlCmd == null)
+                {
+                    _buildMagnetXmlCmd = new RelayCommand(
+                        param => BuildMagnetXml()
+                    );
+                }
+                return _buildMagnetXmlCmd;
+            }
+        }
+
+        public void BuildMagnetXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(MemoryModelMagNet));
+
+            try
+            {
+                TextWriter writer = new StreamWriter("C:\\TempXml\\Test.xml");
+
+                serializer.Serialize(writer, DatabaseMemoryModeMagNet);
+
+                writer.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void BuildMagnetMemoryModel()
+        {
+            DatabaseMemoryModeMagNet = new MemoryModelMagNet();
+            VariableModelMagNetList.Clear();
+
+            foreach (UniversalConnect.Models.VariableModel variableModel in DatabaseMemoryModel.Variables)
+            {
+                MemoryModelMagNet.VariableModelMagNet variableModelMagNet = new MemoryModelMagNet.VariableModelMagNet();
+
+                variableModelMagNet.ID = variableModel.ID;
+                variableModelMagNet.Name = variableModel.Name;
+                variableModelMagNet.Description = variableModel.Description;
+                variableModelMagNet.Address = variableModel.Address;
+                variableModelMagNet.ExternalId = variableModel.ExternalId;
+                variableModelMagNet.ExecutionMask = variableModel.ExecutionMask;
+                variableModelMagNet.Type = variableModel.Type;
+                variableModelMagNet.IsSizeFixed = variableModel.IsSizeFixed;
+                variableModelMagNet.Size = variableModel.Size;
+                variableModelMagNet.Default = variableModel.Default;
+                variableModelMagNet.Minimum = variableModel.Minimum;
+                variableModelMagNet.Maximum = variableModel.Maximum;
+
+                if(variableModel.OptionsSet.Count != 0)
+                {
+                    foreach (OptionModel optionModel in variableModel.OptionsSet)
+                        variableModelMagNet.OptionsSet.Add(optionModel);
+                }
+
+                DatabaseMemoryModeMagNet.Variables.Add(variableModelMagNet);
+
+                VariableModelMagNetList.Add(variableModelMagNet);
+            }            
+        }
+
+        
+        private ICommand _openXMLMagNetFileCmd;
+        public ICommand OpenXMLMagNetFileCmd
+        {
+            get
+            {
+                if (_openXMLMagNetFileCmd == null)
+                {
+                    _openXMLMagNetFileCmd = new RelayCommand(
+                        param => OpenXMLMagNetFile()
+                    );
+                }
+                return _openXMLMagNetFileCmd;
+            }
+        }
+
+        private void OpenXMLMagNetFile()
+        {
+            OpenFileDialog openDlg = new OpenFileDialog();
+            openDlg.DefaultExt = ".xml";
+            openDlg.Filter = "XML Data File (*.xml)|*.xml|All files (*.*)|*.*";
+
+            if (openDlg.ShowDialog() == true)
+            {
+                XmlFileName = System.IO.Path.GetFileName(openDlg.FileName);
+
+                try
+                {
+                    using (Stream testFileStream = File.OpenRead(openDlg.FileName))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(MemoryModelMagNet));
+                        DatabaseMemoryModeMagNet = serializer.Deserialize(testFileStream) as MemoryModelMagNet;
+                        testFileStream.Close();
+
+                        VariableModelMagNetList.Clear();
+                        foreach (MemoryModelMagNet.VariableModelMagNet variableModelMagNet in DatabaseMemoryModeMagNet.Variables)
+                            VariableModelMagNetList.Add(variableModelMagNet);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+        }
+
+        public void FillMagNetParameterInfo(MemoryModelMagNet.VariableModelMagNet _variableModelMagNet)
+        {
+            I18NDescriptionsView.Clear();
+            MagNetFactory = "";
+            MagNetFactoryIndex = "";
+            MagNetConsumer = "";
+            MagNetConsumerIndex = "";
+            WritableConditionViewList.Clear();
+
+            if (_variableModelMagNet.I18NDescriptions.Count != 0)
+            {
+                foreach (I8NString optionModel in _variableModelMagNet.I18NDescriptions)
+                    I18NDescriptionsView.Add(optionModel);
+            }
+
+            if(_variableModelMagNet.Factory != "")
+            {
+                MagNetFactory = _variableModelMagNet.Factory;
+                MagNetFactoryIndex = _variableModelMagNet.FactoryIndex;
+            }
+
+            if (_variableModelMagNet.Consumer != "")
+            {
+                MagNetConsumer = _variableModelMagNet.Consumer;
+                MagNetConsumerIndex = _variableModelMagNet.ConsumerIndex;
+            }
+
+            if (_variableModelMagNet.WritableConditions.Count != 0)
+            {
+                foreach (WritableCondition writableCondition in _variableModelMagNet.WritableConditions)
+                {
+                    WritableConditionView writableConditionView = new WritableConditionView();
+                    writableConditionView.Mode = writableCondition.Mode;
+                    writableConditionView.Variable = writableCondition.Condition.Variable;
+                    writableConditionView.Value = writableCondition.Condition.Value;
+                    WritableConditionViewList.Add(writableConditionView);   
+                }                    
+            }
+
+        }
+
+        
+        private string _magNetFactory;
+        public string MagNetFactory
+        {
+            get { return _magNetFactory; }
+            set
+            {
+                if (value != _magNetFactory)
+                {
+                    _magNetFactory = value;
+                    OnPropertyChanged("MagNetFactory");
+                }
+            }
+        }
+
+        private string _magNetFactoryIndex;
+        public string MagNetFactoryIndex
+        {
+            get { return _magNetFactoryIndex; }
+            set
+            {
+                if (value != _magNetFactoryIndex)
+                {
+                    _magNetFactoryIndex = value;
+                    OnPropertyChanged("MagNetFactoryIndex");
+                }
+            }
+        }
+
+        private string _magNetConsumer;
+        public string MagNetConsumer
+        {
+            get { return _magNetConsumer; }
+            set
+            {
+                if (value != _magNetConsumer)
+                {
+                    _magNetConsumer = value;
+                    OnPropertyChanged("MagNetConsumer");
+                }
+            }
+        }
+
+        private string _magNetConsumerIndex;
+        public string MagNetConsumerIndex
+        {
+            get { return _magNetConsumerIndex; }
+            set
+            {
+                if (value != _magNetConsumerIndex)
+                {
+                    _magNetConsumerIndex = value;
+                    OnPropertyChanged("MagNetConsumerIndex");
+                }
+            }
+        }
+
+        private MemoryModelMagNet _databaseMemoryModelMagNet;
+        public MemoryModelMagNet DatabaseMemoryModeMagNet
+        {
+            get { return _databaseMemoryModelMagNet; }
+            set
+            {
+                if (value != _databaseMemoryModelMagNet)
+                {
+                    _databaseMemoryModelMagNet = value;
+                    OnPropertyChanged("DatabaseMemoryModeMagNet");
+                }
+            }
+        }
+
+        private ObservableCollection<MemoryModelMagNet.VariableModelMagNet> _variableModelMagNetList;
+        public ObservableCollection<MemoryModelMagNet.VariableModelMagNet> VariableModelMagNetList
+        {
+            get
+            {
+                if (_variableModelMagNetList == null)
+                    _variableModelMagNetList = new ObservableCollection<MemoryModelMagNet.VariableModelMagNet>();
+
+                return _variableModelMagNetList;
+            }
+            set
+            {
+                if (_variableModelMagNetList != value)
+                {
+                    _variableModelMagNetList = value;
+                    OnPropertyChanged("VariableModelMagNetList");
+                }
+            }
+        }
+
+        
+        private ObservableCollection<I8NString> _I18NDescriptionsView;
+        public ObservableCollection<I8NString> I18NDescriptionsView
+        {
+            get
+            {
+                if (_I18NDescriptionsView == null)
+                    _I18NDescriptionsView = new ObservableCollection<I8NString>();
+
+                return _I18NDescriptionsView;
+            }
+            set
+            {
+                if (_I18NDescriptionsView != value)
+                {
+                    _I18NDescriptionsView = value;
+                    OnPropertyChanged("I18NDescriptionsView");
+                }
+            }
+        }
+
+        public class WritableConditionView
+        {
+            public string Mode { get; set; }
+            public string Variable { get; set; }
+            public string Value { get; set; }
+        }
+
+
+        private ObservableCollection<WritableConditionView> _writableConditionViewList;
+        public ObservableCollection<WritableConditionView> WritableConditionViewList
+        {
+            get
+            {
+                if (_writableConditionViewList == null)
+                    _writableConditionViewList = new ObservableCollection<WritableConditionView>();
+
+                return _writableConditionViewList;
+            }
+            set
+            {
+                if (_writableConditionViewList != value)
+                {
+                    _writableConditionViewList = value;
+                    OnPropertyChanged("WritableConditionViewList");
+                }
+            }
+        }
+
+
     }
 }

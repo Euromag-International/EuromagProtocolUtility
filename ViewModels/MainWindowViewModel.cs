@@ -17,6 +17,9 @@ namespace EuromagProtocolUtility
     {
         public MainWindowViewModel()
         {
+            CommResources.FrameTypesView = new ObservableCollection<FrameTypeVis>();
+            CommResources.BuildFrameTypeView();
+
             CommResources.DeviceParametersView = new ObservableCollection<ParameterView>();
             CommResources.DeviceParametersFilterExec();
 
