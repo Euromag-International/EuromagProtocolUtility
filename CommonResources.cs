@@ -3837,7 +3837,6 @@ namespace EuromagProtocolUtility
         {
             VarName = _selectedVar.Name;
 
-
             IRAMvariable RamVariable = _selectedVar as IRAMvariable;
             if (RamVariable != null)
             {

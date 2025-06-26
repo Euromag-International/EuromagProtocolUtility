@@ -39,3 +39,5 @@ C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\EuromagProtocolUtility.sourcelink.json
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\MagNetEditor.g.cs
 C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\MagNetEditor.baml
+C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\obj\Debug\net6.0-windows\EuromagProtocolUtility_Content.g.cs
+C:\Users\RS04\Documents\Progetti\SW\ProgettiVS\EuromagProtocolUtility\bin\Debug\net6.0-windows\EuromagProtocolUtility.ico
